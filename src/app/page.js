@@ -212,19 +212,17 @@ export default function HomePage() {
       }}
     >
       <Title align="center" order={1}>
-        Hemanth's Discord <span style={{ color: "#5865F2" }}>Text</span> Formatter
+        Hemanth&apos;s Discord <span style={{ color: "#5865F2" }}>Text</span> Formatter
       </Title>
       <Text align="center" mt={10}>
         Format your text with ANSI codes.
       </Text>
       <Text align="center" mt={10}>
-      You can Add color, backgroundColor to text, you can also make text bold, italic, underline, strike.
+        You can Add color, backgroundColor to text, you can also make text bold, italic, underline, strike.
       </Text>
       <Text align="center" mt={10}>
         You can also undo, redo, reset all formatting.
       </Text>
-
-
 
       {/* 
         1) Single container (no border) that includes:
@@ -365,7 +363,7 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Resizable text area (like <textarea> style) */}
+        {/* Resizable text area (like &lt;textarea&gt; style) */}
         <div
           ref={textareaRef}
           contentEditable
@@ -384,7 +382,7 @@ export default function HomePage() {
             outline: "none",
           }}
         >
-          Welcome to <span className="ansi-33">Rebane</span>&apos;s{" "}
+          Welcome to <span className="ansi-33">Hemanth</span>&apos;s{" "}
           <span className="ansi-45">
             <span className="ansi-37">Discord</span>
           </span>{" "}
@@ -411,7 +409,6 @@ export default function HomePage() {
       <Text align="center" mt={20} size="xs">
         This is not an offical/unofficial tool owned by discord.
       </Text>
-
     </Container>
   );
 }
