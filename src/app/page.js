@@ -111,9 +111,7 @@ export default function HomePage() {
           if (ansiCode >= 40) newState.bg = ansiCode;
         }
         states.push(newState);
-        text += `\x1b[${newState.st};${
-          ansiCode >= 40 ? newState.bg : newState.fg
-        }m`;
+        text += `\x1b[${newState.st};${ansiCode >= 40 ? newState.bg : newState.fg}m`;
         text += nodesToANSI(Array.from(node.childNodes), states);
         states.pop();
         text += `\x1b[0m`;
@@ -196,10 +194,12 @@ export default function HomePage() {
   const fgButtons = ["30", "31", "32", "33", "34", "35", "36", "37"];
   const bgButtons = ["40", "41", "42", "43", "44", "45", "46", "47"];
 
+  // Disable ESLint warning for missing dependency 'updateHistory'
   useEffect(() => {
     if (textareaRef.current) {
       updateHistory();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -224,8 +224,10 @@ export default function HomePage() {
         You can also undo, redo, reset all formatting.
       </Text>
 
+
+
       {/* 
-        1)single container(no border)that includes:
+        1) Single container (no border) that includes:
            - FG color section
            - BG color section
       */}
@@ -329,7 +331,9 @@ export default function HomePage() {
         </div>
       </div>
 
-
+      {/* 
+        2) Container for advanced feature buttons + text area
+      */}
       <div
         style={{
           marginTop: 20,
@@ -339,7 +343,7 @@ export default function HomePage() {
           backgroundColor: "transparent",
         }}
       >
-  
+        {/* Advanced Feature Buttons on top */}
         <div
           style={{
             width: 600,
@@ -361,7 +365,7 @@ export default function HomePage() {
           ))}
         </div>
 
-
+        {/* Resizable text area (like <textarea> style) */}
         <div
           ref={textareaRef}
           contentEditable
@@ -380,7 +384,7 @@ export default function HomePage() {
             outline: "none",
           }}
         >
-          Welcome to <span className="ansi-33">Rebane</span>'s{" "}
+          Welcome to <span className="ansi-33">Rebane</span>&apos;s{" "}
           <span className="ansi-45">
             <span className="ansi-37">Discord</span>
           </span>{" "}
@@ -393,6 +397,9 @@ export default function HomePage() {
           <span className="ansi-37">d</span> Text Generator!
         </div>
 
+        {/* 
+          3) Bottom Buttons exactly below the text box
+        */}
         <Group spacing="md" position="center" style={{ marginTop: 10 }}>
           <Button onClick={handleCopy}>Copy ANSI Text</Button>
           <Button onClick={handleExport} variant="outline">
@@ -404,6 +411,7 @@ export default function HomePage() {
       <Text align="center" mt={20} size="xs">
         This is not an offical/unofficial tool owned by discord.
       </Text>
+
     </Container>
   );
 }
